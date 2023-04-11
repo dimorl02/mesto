@@ -1,0 +1,6 @@
+.profile {
+    display: flex;
+    flex-direction: row;
+    margin: 45px auto 0;
+    width: calc(100% - 400px);
+}

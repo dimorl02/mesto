@@ -1,0 +1,42 @@
+/*подключаем сброс стилей*/
+@import url(../vendor/normalize.css);
+
+
+/*подключаем шрифты*/
+@import url(../vendor/fonts/fonts.css);
+
+
+/*блок page*/
+@import url(../blocks/page/page.css);
+
+
+/*блок header*/
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__line/header__line.css);
+
+@import url(../blocks/header/__logo/header__logo.css);
+
+
+/*блок content*/
+@import url(../blocks/content/content.css);
+
+/*блок profile*/
+@import url(../blocks/profile/profile.css);
+
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__author/profile__author.css);
+@import url(../blocks/profile/__name/profile__name.css);
+@import url(../blocks/profile/__brief/profile__brief.css);
+@import url(../blocks/profile/__editButton/profile__editButton.css);
+@import url(../blocks/profile/__pen/profile__pen.css);
+@import url(../blocks/profile/__addButton/profile__addButton.css);
+@import url(../blocks/profile/__plus/profile__plus.css);
+@import url(../blocks/profile/__image/profile__image.css);
+
+/*блок elements*/
+@import url(../blocks/elements/elements.css);
+
+@import url(../blocks/elements/__list/elements__list.css);
+@import url(../blocks/elements/__element/elements__element.css);
+@import url(../blocks/elements/__image/elements__image.css);
+

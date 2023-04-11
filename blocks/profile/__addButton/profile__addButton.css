@@ -1,0 +1,10 @@
+.profile__addButton {
+    display: flex;
+    height: 50px;
+    width: 150px;
+    border: 1px solid #ffffff;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    align-self: center;
+}

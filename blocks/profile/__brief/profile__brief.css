@@ -1,0 +1,8 @@
+.profile__brief {
+    margin: 0;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 18px;
+    max-height: 18px;
+    line-height: 22px;
+}
