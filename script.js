@@ -3,11 +3,13 @@ let popup = document.querySelector('.popup');
 let elements = document.querySelector('.elements');
 
 let info = profile.querySelector('.profile__info');
-let list = elements.querySelector('.elements__list');
-let element = list.querySelector('.elements__element');
-let area = element.querySelector('.elements__area');
-let field = area.querySelector('.elements__field');
-let likeButton = field.querySelector('.elements__likeButton');
+
+
+// let list = elements.querySelector('.elements__list');
+// let element = list.querySelector('.elements__element');
+// let area = element.querySelector('.elements__area');
+// let field = area.querySelector('.elements__field');
+// let likeButton = field.querySelector('.elements__likeButton');
 
 
 let author = info.querySelector('.profile__author');
@@ -16,8 +18,6 @@ let textbrief = author.querySelector('.profile__brief');
 
 let popupname = popup.querySelector('.popup__text_type_name');
 let popupbrief = popup.querySelector('.popup__text_type_brief');
-
-
 
 
 let addButton = profile.querySelector('.profile__addButton');
@@ -41,9 +41,10 @@ function editProfile() {
     textbrief.textContent = popupbrief.value;
 }
 
-function likeDislike() {
-    likeButton.classList.toggle('elements__likeButton_active'); 
-}
+// function likeDislike() {
+//     likeButton.classList.toggle('elements__likeButton_active'); 
+// }
+// likeButton.addEventListener('click', likeDislike);
 
 // function opacity() {
 //     if (likeButton.classList.contains('elements__likeButton_active') === false) {
@@ -54,5 +55,5 @@ function likeDislike() {
 editButton.addEventListener('click', openPopup); 
 closeButton.addEventListener('click', closePopup); 
 saveButton.addEventListener('click', editProfile); 
-likeButton.addEventListener('click', likeDislike); 
+ 
 // likeButton.addEventListener('drag', opacity); 

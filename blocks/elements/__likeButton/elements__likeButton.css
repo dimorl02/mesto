@@ -10,10 +10,10 @@
     flex-shrink: 0;
 }
 
-.elements__likeButton_active {
+.elements__likeButton:active {
     background-image: url(../../../images/elements-blackheart.svg);
 }
 
-.elements__likeButton:not(.element__button_active):hover {
+.elements__likeButton:not(.element__button:active):hover {
     opacity: 0.5;
 }
