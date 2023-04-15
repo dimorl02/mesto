@@ -1,0 +1,25 @@
+.popup__saveButton {
+    width: calc(100% - 72px);
+    height: 50px;
+    padding: 0;
+    margin: 48px auto 0;
+    color: white;
+    background-color: black;
+    font-family: 'Inter';
+    font-size: 18px;
+    line-height: 22px;
+}
+
+@media screen and (max-width: 500px) {
+    .popup__saveButton {
+        width: calc(100% - 44px);
+        margin-top: 45px;
+        height: 46px;
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
+.popup__saveButton:hover {
+    opacity: 0.8;
+}

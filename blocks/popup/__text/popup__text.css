@@ -1,0 +1,15 @@
+.popup__text {
+    width: calc(100% - 72px);
+    margin: 30px auto 13px;
+    padding: 0;
+    border: none;
+    font-family: 'Inter';
+    font-size: 14px;
+    line-height: 17px;
+}
+
+@media screen and (max-width: 500px) {
+    .popup__text {
+        width: calc(100% - 44px);
+    }
+}

@@ -7,4 +7,16 @@
     align-items: center;
     margin-left: auto;
     align-self: center;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+@media screen and (max-width: 1070px) {
+    .profile__addButton {
+        margin-top: 36px;
+        width: 100%;
+    }
+}
+
+.profile__addButton:hover {
+    opacity: 0.6;
 }

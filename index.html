@@ -24,54 +24,104 @@
                     <p class="profile__brief">Исследователь океана</p>
                 </div>
                 
-                <div class="profile__editButton">
-                    <img src="./images/profile-pen.svg" alt="" class="profile__pen">
-                </div>
+                <button class="profile__editButton">
+                    <img src="./images/profile-pen.svg" alt="Кнопка редактирования" class="profile__pen">
+                </button>
             </div>
 
-            <div class="profile__addButton">
-                <img src="./images/profile-plus.svg" alt="" class="profile__plus">
-            </div>
+            <button class="profile__addButton">
+                <img src="./images/profile-plus.svg" alt="Кнопка добавления" class="profile__plus">
+            </button>
         </section>
 
         <section class="elements">
             <ul class="elements__list">
                 <li class="elements__element">
-                    <img src="./images/item-1.jpg" alt="Картинка 1" class="elements__image">
-                    
-                </li>
-
-                <li class="elements__element">
-                    <img src="./images/item-2.jpg" alt="Картинка 2" class="elements__image">
+                    <img src="./images/item-1.jpg" alt="Картинка 1">
+                    <div class="elements__area">
+                        <div class="elements__field">
+                            <p class="elements__text">Карачаевск</p>
+                            <button class="elements__likeButton"></button>
+                        </div>
+                    </div>
                 
                 </li>
 
                 <li class="elements__element">
-                    <img src="./images/item-3.jpg" alt="Картинка 3" class="elements__image">
-
+                    <img src="./images/item-2.jpg" alt="Картинка 2">
+                    <div class="elements__area">
+                        <div class="elements__field">
+                            <p class="elements__text">Гора Эльбрус</p>
+                            <button class="elements__likeButton"></button>
+                        </div>
+                    </div>
                 </li>
 
                 <li class="elements__element">
-                    <img src="./images/item-4.jpg" alt="Картинка 4" class="elements__image">
-
+                    <img src="./images/item-3.jpg" alt="Картинка 3">
+                    <div class="elements__area">
+                        <div class="elements__field">
+                            <p class="elements__text">Домбай</p>
+                            <button class="elements__likeButton"></button>
+                        </div>
+                    </div>
                 </li>
 
                 <li class="elements__element">
-                    <img src="./images/item-5.jpg" alt="Картинка 5" class="elements__image">
-                    
+                    <img src="./images/item-4.jpg" alt="Картинка 4">
+                    <div class="elements__area">
+                        <div class="elements__field">
+                            <p class="elements__text">Гора Эльбрус</p>
+                            <button class="elements__likeButton"></button>
+                        </div>
+                    </div>
                 </li>
 
                 <li class="elements__element">
-                    <img src="./images/item-6.jpg" alt="Картинка 6" class="elements__image">
+                    <img src="./images/item-5.jpg" alt="Картинка 5">
+                    <div class="elements__area">
+                        <div class="elements__field">
+                            <p class="elements__text">Домбай</p>
+                            <button class="elements__likeButton"></button>
+                        </div>
+                    </div>
+                </li>
 
+                <li class="elements__element">
+                    <img src="./images/item-6.jpg" alt="Картинка 6">
+                    <div class="elements__area">
+                        <div class="elements__field">
+                            <p class="elements__text">Карачаево-Ч...</p>
+                            <button class="elements__likeButton"></button>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </section>
+
+        
     </main>
 
+    <footer class="footer">
+        <p class="footer__text">© 2023 Mesto Russia</p>
+    </footer>
 
+    <section class="popup">
+        <div class="popup__content">
+            <div class="popup__container">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input type="text" placeholder="" class="popup__text popup__text_type_name">
+                <div class="popup__line"></div>
+                <input type="text" placeholder="" class="popup__text popup__text_type_brief">
+                <div class="popup__line"></div>
+                <button class="popup__saveButton">Сохранить</button>
+                <button class="popup__closeButton"><img src="./images/popup-close.svg" alt="Кнопка закрытия формы" class="popup__cross"></button>
+            </div>
+        </div>
+        
+    </section>
+
+    <script src="script.js"></script>
 </body>
 
-<footer class="footer">
-</footer>
 <html>
