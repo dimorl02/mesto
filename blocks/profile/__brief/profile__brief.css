@@ -1,6 +1,6 @@
 .profile__brief {
     margin: 0;
-    font-family: 'Inter';
+    font-family: 'Inter', ‘Arial’, sans-serif;
     font-weight: 400;
     font-size: 18px;
     max-height: 18px;

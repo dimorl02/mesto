@@ -1,4 +1,4 @@
-.popup__saveButton {
+.popup__save-button {
     width: calc(100% - 72px);
     height: 50px;
     padding: 0;
@@ -8,10 +8,13 @@
     font-family: 'Inter';
     font-size: 18px;
     line-height: 22px;
+    border: none;
+    border-radius: 2px;
+    
 }
 
 @media screen and (max-width: 500px) {
-    .popup__saveButton {
+    .popup__save-button {
         width: calc(100% - 44px);
         margin-top: 45px;
         height: 46px;
@@ -20,6 +23,6 @@
     }
 }
 
-.popup__saveButton:hover {
+.popup__save-button:hover {
     opacity: 0.8;
 }

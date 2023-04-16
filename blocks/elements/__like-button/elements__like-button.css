@@ -1,4 +1,4 @@
-.elements__likeButton {
+.elements__like-button {
     background-image: url(../../../images/elements-heart.svg);
     height: 19px;
     width: 22px;
@@ -10,10 +10,10 @@
     flex-shrink: 0;
 }
 
-.elements__likeButton:active {
+.elements__like-button:active {
     background-image: url(../../../images/elements-blackheart.svg);
 }
 
-.elements__likeButton:not(.element__button:active):hover {
+.elements__like-button:not(.elements__like-button:active):hover {
     opacity: 0.5;
 }

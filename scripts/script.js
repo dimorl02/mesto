@@ -9,7 +9,7 @@ let info = profile.querySelector('.profile__info');
 // let element = list.querySelector('.elements__element');
 // let area = element.querySelector('.elements__area');
 // let field = area.querySelector('.elements__field');
-// let likeButton = field.querySelector('.elements__likeButton');
+// let likeButton = field.querySelector('.elements__like-Button');
 
 
 let author = info.querySelector('.profile__author');
@@ -20,15 +20,16 @@ let popupname = popup.querySelector('.popup__text_type_name');
 let popupbrief = popup.querySelector('.popup__text_type_brief');
 
 
-let addButton = profile.querySelector('.profile__addButton');
-let editButton = profile.querySelector('.profile__editButton');
-let closeButton = popup.querySelector('.popup__closeButton');
-let saveButton = popup.querySelector('.popup__saveButton');
+// let addButton = profile.querySelector('.profile__add-button');
+let editButton = profile.querySelector('.profile__edit-button');
+let closeButton = popup.querySelector('.popup__close-button');
+let saveButton = popup.querySelector('.popup__save-button');
 
-popupname.value = textname.textContent;
-popupbrief.value = textbrief.textContent;
+
 
 function openPopup() {
+    popupname.value = textname.textContent;
+    popupbrief.value = textbrief.textContent;
     popup.classList.add('popup_opened'); 
 }
 
@@ -36,19 +37,21 @@ function closePopup() {
     popup.classList.remove('popup_opened');
 }
 
-function editProfile() {
+function editProfile(evt) {
+    evt.preventDefault();
     textname.textContent = popupname.value;
     textbrief.textContent = popupbrief.value;
+    closePopup();
 }
 
 // function likeDislike() {
-//     likeButton.classList.toggle('elements__likeButton_active'); 
+//     likeButton.classList.toggle('elements__like-button_active'); 
 // }
 // likeButton.addEventListener('click', likeDislike);
 
 // function opacity() {
-//     if (likeButton.classList.contains('elements__likeButton_active') === false) {
-//         likeButton.classList.add('elements__likeButton_dragged')
+//     if (likeButton.classList.contains('elements__like-button_active') === false) {
+//         likeButton.classList.add('elements__like-button_dragged')
 //     }
 // }
 
