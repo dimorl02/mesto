@@ -13,5 +13,6 @@
 @media screen and (max-width: 500px) {
     .popup__text {
         width: calc(100% - 44px);
+        max-height: 14px;
     }
 }

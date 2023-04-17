@@ -1,7 +1,6 @@
 let profile = document.querySelector('.profile');
 let popup = document.querySelector('.popup');
 let elements = document.querySelector('.elements');
-
 let info = profile.querySelector('.profile__info');
 
 
@@ -11,7 +10,7 @@ let info = profile.querySelector('.profile__info');
 // let field = area.querySelector('.elements__field');
 // let likeButton = field.querySelector('.elements__like-Button');
 
-
+let form = popup.querySelector('.popup__form');
 let author = info.querySelector('.profile__author');
 let textname = author.querySelector('.profile__name');
 let textbrief = author.querySelector('.profile__brief');
@@ -23,7 +22,6 @@ let popupbrief = popup.querySelector('.popup__text_type_brief');
 // let addButton = profile.querySelector('.profile__add-button');
 let editButton = profile.querySelector('.profile__edit-button');
 let closeButton = popup.querySelector('.popup__close-button');
-let saveButton = popup.querySelector('.popup__save-button');
 
 
 
@@ -57,6 +55,6 @@ function editProfile(evt) {
 
 editButton.addEventListener('click', openPopup); 
 closeButton.addEventListener('click', closePopup); 
-saveButton.addEventListener('click', editProfile); 
+form.addEventListener('submit', editProfile); 
  
 // likeButton.addEventListener('drag', opacity); 

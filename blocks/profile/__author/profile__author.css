@@ -8,5 +8,6 @@
 @media screen and (max-width: 500px) {
     .profile__author {
         gap: 14px;
+        align-self: auto;
     }
 }
