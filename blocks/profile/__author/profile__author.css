@@ -2,12 +2,12 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 7px;
 }
 
 @media screen and (max-width: 500px) {
     .profile__author {
-        gap: 14px;
+        gap: 8px;
         align-self: auto;
     }
 }

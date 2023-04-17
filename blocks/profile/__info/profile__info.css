@@ -1,7 +1,7 @@
 .profile__info {
     display: flex;
     flex-direction: row;
-    column-gap: 25px;
+    column-gap: 18px;
     max-height: 73px;
     margin-top: 22px;
 }
@@ -11,5 +11,6 @@
         max-width: 100%;
         margin: 26px auto 0;
         column-gap: 10px;
+        transform: translateX(14px);
     }
 }

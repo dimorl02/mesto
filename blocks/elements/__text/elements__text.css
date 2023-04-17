@@ -3,6 +3,10 @@
     font-weight: 900;
     font-size: 24px;
     height: 23px;
+    max-width: 190px;
     line-height: 22px;
     margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
