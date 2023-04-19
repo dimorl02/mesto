@@ -2,7 +2,7 @@
     width: calc(100% - 72px);
     margin: 30px auto 0;
     padding: 0;
-    padding-bottom: 13px;
+    padding-bottom: 10px;
     border: none;
     border-bottom:  1px solid rgba(0, 0, 0, 0.2);
     font-family: 'Inter', ‘Arial’, sans-serif;
@@ -13,6 +13,5 @@
 @media screen and (max-width: 500px) {
     .popup__text {
         width: calc(100% - 44px);
-        max-height: 14px;
     }
 }
