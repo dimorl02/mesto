@@ -34,15 +34,16 @@
 @import url(../blocks/profile/__image/profile__image.css);
 
 
-/*блок elements*/
-@import url(../blocks/elements/elements.css);
+/*блок cards*/
+@import url(../blocks/cards/cards.css);
 
-@import url(../blocks/elements/__list/elements__list.css);
-@import url(../blocks/elements/__element/elements__element.css);
-@import url(../blocks/elements/__text/elements__text.css);
-@import url(../blocks/elements/__like-button/elements__like-button.css);
-@import url(../blocks/elements/__field/elements__field.css);
+@import url(../blocks/cards/__card/cards__card.css);
+@import url(../blocks/cards/__text/cards__card.css);
+@import url(../blocks/cards/__image/cards__image.css);
+@import url(../blocks/cards/__like-button/cards__like-button.css);
+@import url(../blocks/cards/__field/cards__field.css);
 
+@import url(../blocks/cards/__like-button/_active/cards__like-button_active.css);
 
 /*блок popup*/
 @import url(../blocks/popup/popup.css);
@@ -60,7 +61,13 @@
 @import url(../blocks/popup/__text/_type/popup__text_type_name.css);
 @import url(../blocks/popup/__text/_type/popup__text_type_brief.css);
 
+/*блок add-popup*/
+@import url(../blocks/add-popup/add-popup.css);
 
+@import url(../blocks/add-popup/__close-button/add-popup__close-button.css);
+@import url(../blocks/add-popup/__create-button/add-popup__create-button.css);
+
+@import url(../blocks/add-popup/_opened/add-popup_opened.css);
 
 
 /*блок footer*/
