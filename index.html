@@ -33,53 +33,6 @@
         <section class="cards">
         </section>
 
-        <!-- <section class="elements">
-            <ul class="elements__list">
-                <li class="elements__element">
-                    <img src="./images/item-1.jpg" alt="Картинка 1">
-                    <div class="elements__field">
-                        <h2 class="elements__text">Карачаевск</h2>
-                        <button type="button" class="elements__like-button"></button>
-                    </div>
-                </li>
-                <li class="elements__element">
-                    <img src="./images/item-2.jpg" alt="Картинка 2">
-                    <div class="elements__field">
-                        <h2 class="elements__text">Гора Эльбрус</h2>
-                        <button type="button" class="elements__like-button"></button>
-                    </div>
-                </li>
-                <li class="elements__element">
-                    <img src="./images/item-3.jpg" alt="Картинка 3">
-                    <div class="elements__field">
-                        <h2 class="elements__text">Домбай</h2>
-                        <button type="button" class="elements__like-button"></button>
-                    </div>
-                </li>
-                <li class="elements__element">
-                    <img src="./images/item-4.jpg" alt="Картинка 4">
-                    <div class="elements__field">
-                        <h2 class="elements__text">Гора Эльбрус</h2>
-                        <button type="button" class="elements__like-button"></button>
-                    </div>
-                </li>
-                <li class="elements__element">
-                    <img src="./images/item-5.jpg" alt="Картинка 5">
-                    <div class="elements__field">
-                        <h2 class="elements__text">Домбай</h2>
-                        <button type="button" class="elements__like-button"></button>
-                    </div>
-                </li>
-                <li class="elements__element">
-                    <img src="./images/item-6.jpg" alt="Картинка 6">
-                    <div class="elements__field">
-                        <h2 class="elements__text">Карачаево-Черкессия</h2>
-                        <button type="button" class="elements__like-button"></button>
-                    </div>
-                </li>
-            </ul>
-        </section> -->
-
     </main>
 
     <footer class="footer">
@@ -103,8 +56,8 @@
         <div class="popup__container">
             <h2 class="popup__title">Новое место</h2>
             <form class="popup__form" name="form">
-                <input type="text" placeholder="Название" class="popup__text popup__text_type_name" name="name">
-                <input type="text" placeholder="Ссылка на картинку" class="popup__text popup__text_type_brief"
+                <input type="text" placeholder="Название" class="popup__text popup__name_type_name" name="name">
+                <input type="text" placeholder="Ссылка на картинку" class="popup__text popup__name_type_image"
                     name="brief">
                 <button type="button" class="add-popup__create-button">Создать</button>
             </form>
@@ -114,12 +67,16 @@
     </section>
 
 
-    <template class="card">
-        <img class="cards__image">
-        <div class="cards__field">
-            <h2 class="cards__name"></h2>
-            <button type="button" class="cards__like-button"></button>
+    <template class="cards__card-template">
+        <div class="cards__card">
+            <img class="cards__image">
+            <div class="cards__field">
+                <h2 class="cards__name"></h2>
+                <button type="button" class="cards__like-button"></button>
+            </div>
+            <button class="cards__delete-button"></button>
         </div>
+        
     </template>
 
     <script src="./scripts/index.js"></script>
