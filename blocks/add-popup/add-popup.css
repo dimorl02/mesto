@@ -5,7 +5,21 @@
     background-color: rgba(0, 0, 0, 0.5);
     top: 0;
     left: 0;
-    display: none;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    animation: close 0.3s ease;
     justify-content: center;
     align-items: center;
 }
+
+@keyframes close {
+    from {
+        visibility: visible;
+        opacity: 1;
+    }
+    to {
+        visibility: hidden;
+        opacity: 0;
+    }
+  }

@@ -71,12 +71,14 @@
 
 @import url(../blocks/add-popup/_opened/add-popup_opened.css);
 
-/*блок add-popup*/
+/*блок image-popup*/
 @import url(../blocks/image-popup/image-popup.css);
 
 @import url(../blocks/image-popup/__close-button/image-popup__close-button.css);
 @import url(../blocks/image-popup/__name/image-popup__name.css);
 @import url(../blocks/image-popup/__image/image-popup__image.css);
+@import url(../blocks/image-popup/__figure/image-popup__figure.css);
+@import url(../blocks/image-popup/__container/image-popup__container.css);
 
 @import url(../blocks/image-popup/_opened/image-popup_opened.css);
 
