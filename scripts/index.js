@@ -1,6 +1,6 @@
 let profile = document.querySelector('.profile');
-let popup = document.querySelector('.popup');
-let addpopup = document.querySelector('.add-popup');
+let popup = document.querySelector('#popup');
+let addpopup = document.querySelector('#add-popup');
 let imagepopup = document.querySelector('.image-popup');
 let info = profile.querySelector('.profile__info');
 let cardsList = document.querySelector('.cards');
@@ -39,18 +39,18 @@ let form = popup.querySelector('.popup__form');
 let author = info.querySelector('.profile__author');
 let textname = author.querySelector('.profile__name');
 let textbrief = author.querySelector('.profile__brief');
-let cardname = addpopup.querySelector('.popup__name_type_name');
-let cardimage = addpopup.querySelector('.popup__name_type_image');
+let cardname = addpopup.querySelector('#add-popup__text');
+let cardimage = addpopup.querySelector('#add-popup__image');
 
-let popupname = popup.querySelector('.popup__text_type_name');
-let popupbrief = popup.querySelector('.popup__text_type_brief');
+let popupname = popup.querySelector('#popup__text');
+let popupbrief = popup.querySelector('#popup__brief');
 
 
 let addButton = profile.querySelector('.profile__add-button');
 let editButton = profile.querySelector('.profile__edit-button');
 let closeButton = popup.querySelector('.popup__close-button');
-let secondcloseButton = addpopup.querySelector('.add-popup__close-button');
-let createButton = addpopup.querySelector('.add-popup__create-button');
+let secondcloseButton = addpopup.querySelector('#add-popup__close-button');
+let createButton = addpopup.querySelector('#add-popup__create-button');
 
 let thirdcloseButton = addpopup.querySelector('.image-popup__close-button');
 
@@ -66,11 +66,11 @@ function closePopup() {
 }
 
 function openAddPopup() {
-  addpopup.classList.add('add-popup_opened');
+  addpopup.classList.add('popup_opened');
 }
 
 function closeAddPopup() {
-  addpopup.classList.remove('add-popup_opened');
+  addpopup.classList.remove('popup_opened');
 }
 
 function openImagePopup() {

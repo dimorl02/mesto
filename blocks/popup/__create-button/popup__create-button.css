@@ -1,4 +1,4 @@
-.add-popup__create-button {
+.popup__create-button {
     width: calc(100% - 72px);
     height: 50px;
     padding: 0;
@@ -14,7 +14,7 @@
 }
 
 @media screen and (max-width: 500px) {
-    .add-popup__create-button {
+    .popup__create-button {
         width: calc(100% - 44px);
         margin-top: 45px;
         height: 46px;
@@ -23,6 +23,6 @@
     }
 }
 
-.add-popup__create-button:hover {
+.popup__create-button:hover {
     opacity: 0.8;
 }

@@ -39,12 +39,12 @@
         <p class="footer__text">© 2023 Mesto Russia</p>
     </footer>
 
-    <section class="popup">
+    <section class="popup" id="popup">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
             <form class="popup__form" name="form">
-                <input type="text" placeholder="" class="popup__text popup__text_type_name" name="name">
-                <input type="text" placeholder="" class="popup__text popup__text_type_brief" name="brief">
+                <input type="text" placeholder="" class="popup__text popup__text_type_name" name="name" id="popup__text">
+                <input type="text" placeholder="" class="popup__text popup__text_type_brief" name="brief" id="popup__brief">
                 <button type="submit" class="popup__save-button">Сохранить</button>
             </form>
             <button type="button" class="popup__close-button"><img src="./images/popup-close.svg"
@@ -52,16 +52,16 @@
         </div>
     </section>
 
-    <section class="add-popup">
+    <section class="popup" id="add-popup">
         <div class="popup__container">
             <h2 class="popup__title">Новое место</h2>
             <form class="popup__form" name="form">
-                <input type="text" placeholder="Название" class="popup__text popup__name_type_name" name="name">
-                <input type="text" placeholder="Ссылка на картинку" class="popup__text popup__name_type_image"
-                    name="brief">
-                <button type="button" class="add-popup__create-button">Создать</button>
+                <input type="text" placeholder="Название" class="popup__text popup__text_type_name" name="name" id="add-popup__text">
+                <input type="text" placeholder="Ссылка на картинку" class="popup__text popup__text_type_image"
+                    name="brief" id="add-popup__image">
+                <button type="button" class="popup__save-button" id="add-popup__create-button">Создать</button>
             </form>
-            <button type="button" class="add-popup__close-button"><img src="./images/popup-close.svg"
+            <button type="button" class="popup__close-button" id="add-popup__close-button"><img src="./images/popup-close.svg"
                     alt="Кнопка закрытия формы" class="popup__cross"></button>
         </div>
     </section>
@@ -74,7 +74,7 @@
             </figure>
 
             <button type="button" class="image-popup__close-button"><img src="./images/popup-close.svg"
-                alt="Кнопка закрытия формы" class="popup__cross"></button>
+                alt="Кнопка закрытия формы" class="image-popup__cross"></button>
         </div>
         
         
