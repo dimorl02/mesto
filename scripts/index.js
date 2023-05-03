@@ -1,10 +1,10 @@
-let profile = document.querySelector('.profile');
-let popup = document.querySelector('#popup');
-let addpopup = document.querySelector('#add-popup');
-let imagepopup = document.querySelector('.image-popup');
-let info = profile.querySelector('.profile__info');
-let cardsList = document.querySelector('.cards');
-let cardTemplate = document.querySelector('.cards__card-template').content;
+const profile = document.querySelector('.profile');
+const popup = document.querySelector('#popup');
+const addpopup = document.querySelector('#add-popup');
+const imagepopup = document.querySelector('#image-popup');
+const info = profile.querySelector('.profile__info');
+const cardsList = document.querySelector('.cards');
+const cardTemplate = document.querySelector('.cards__card-template').content;
 
 const initialCards = [
   {
@@ -35,50 +35,52 @@ const initialCards = [
 
 
 
-let form = popup.querySelector('.popup__form');
-let author = info.querySelector('.profile__author');
-let textname = author.querySelector('.profile__name');
-let textbrief = author.querySelector('.profile__brief');
-let cardname = addpopup.querySelector('#add-popup__text');
-let cardimage = addpopup.querySelector('#add-popup__image');
+const form = popup.querySelector('.popup__form');
+const author = info.querySelector('.profile__author');
+const textname = author.querySelector('.profile__name');
+const textbrief = author.querySelector('.profile__brief');
+const cardname = addpopup.querySelector('#add-popup__text');
+const cardimage = addpopup.querySelector('#add-popup__image');
 
-let popupname = popup.querySelector('#popup__text');
-let popupbrief = popup.querySelector('#popup__brief');
-
-
-let addButton = profile.querySelector('.profile__add-button');
-let editButton = profile.querySelector('.profile__edit-button');
-let closeButton = popup.querySelector('.popup__close-button');
-let secondcloseButton = addpopup.querySelector('#add-popup__close-button');
-let createButton = addpopup.querySelector('#add-popup__create-button');
-
-let thirdcloseButton = addpopup.querySelector('.image-popup__close-button');
+const popupname = popup.querySelector('#popup__text');
+const popupbrief = popup.querySelector('#popup__brief');
 
 
-function openPopup() {
-  popupname.value = textname.textContent;
-  popupbrief.value = textbrief.textContent;
-  popup.classList.add('popup_opened');
+const addButton = profile.querySelector('.profile__add-button');
+const editButton = profile.querySelector('.profile__edit-button');
+const closeButton = popup.querySelector('.popup__close-button');
+const secondcloseButton = addpopup.querySelector('#add-popup__close-button');
+const createButton = addpopup.querySelector('#add-popup__create-button');
+
+const thirdcloseButton = addpopup.querySelector('#image-popup__close-button');
+
+
+function openPopup(type) {
+  if (type === 'popup') {
+    popupname.value = textname.textContent;
+    popupbrief.value = textbrief.textContent;
+    popup.classList.add('popup_opened');
+    }
+  if (type === 'add-popup') {
+    addpopup.classList.add('popup_opened');
+    }
+  if (type === 'image-popup') {
+    imagepopup.classList.add('popup_opened');
+    }
 }
 
-function closePopup() {
+function closePopup(type) {
+  if (type === 'popup') {
   popup.classList.remove('popup_opened');
-}
+    }
 
-function openAddPopup() {
-  addpopup.classList.add('popup_opened');
-}
-
-function closeAddPopup() {
+  if (type === 'add-popup') {
   addpopup.classList.remove('popup_opened');
-}
+    }
 
-function openImagePopup() {
-  imagepopup.classList.add('image-popup_opened');
-}
-
-function closeImagePopup() {
-  imagepopup.classList.remove('image-popup_opened');
+  if (type === 'image-popup') {
+    imagepopup.classList.remove('popup_opened');
+    }
 }
 
 
@@ -118,13 +120,13 @@ function addCard(evt) {
 
 
   cardElement.querySelector('.cards__image').addEventListener('click', () => {
-    imagepopup.querySelector('.image-popup__name').textContent = name;
-    imagepopup.querySelector('.image-popup__image').src = link;
-    imagepopup.querySelector('.image-popup__image').alt = link;
-    openImagePopup();
+    imagepopup.querySelector('#image-popup__name').textContent = name;
+    imagepopup.querySelector('#image-popup__image').src = link;
+    imagepopup.querySelector('#image-popup__image').alt = name;
+    openPopup('image-popup');
     
-    imagepopup.querySelector('.image-popup__close-button').addEventListener('click', () => {
-      closeImagePopup();
+    imagepopup.querySelector('#image-popup__close-button').addEventListener('click', () => {
+      closePopup('image-popup');
     });
   });
 
@@ -135,13 +137,13 @@ function renderCards() {
     const cardElement = cardTemplate.querySelector('.cards__card').cloneNode(true);
 
     cardElement.querySelector('.cards__image').addEventListener('click', () => {
-      imagepopup.querySelector('.image-popup__name').textContent = element.name;
-      imagepopup.querySelector('.image-popup__image').src = element.link;
-      imagepopup.querySelector('.image-popup__image').alt = element.link;
-      openImagePopup();
+      imagepopup.querySelector('#image-popup__name').textContent = element.name;
+      imagepopup.querySelector('#image-popup__image').src = element.link;
+      imagepopup.querySelector('#image-popup__image').alt = element.name;
+      openPopup('image-popup');
       
-      imagepopup.querySelector('.image-popup__close-button').addEventListener('click', () => {
-        closeImagePopup();
+      imagepopup.querySelector('#image-popup__close-button').addEventListener('click', () => {
+        closePopup('image-popup');
       });
     });
 
@@ -164,12 +166,12 @@ function renderCards() {
 }
 
 
-editButton.addEventListener('click', openPopup);
-closeButton.addEventListener('click', closePopup);
+editButton.addEventListener('click', openPopup('popup'));
+closeButton.addEventListener('click', closePopup('popup'));
 
 
-addButton.addEventListener('click', openAddPopup);
-secondcloseButton.addEventListener('click', closeAddPopup);
+addButton.addEventListener('click', openPopup('add-popup'));
+secondcloseButton.addEventListener('click', closePopup('add-popup'));
 
 
 createButton.addEventListener('click', addCard);

@@ -2,6 +2,7 @@
     visibility: visible;
     opacity: 1;
     animation: open 0.3s ease;
+    transition: opacity visibility 0.3s transform 0.3s;
 }
 
 @keyframes open {
