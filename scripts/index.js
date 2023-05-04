@@ -97,7 +97,7 @@ cardsList.prepend(...firstcards);
 const handleAddFormSubmit = (evt) => {
   evt.preventDefault();
 
-  renderCard(inputPlaceName.value, inputLink.value);
+  renderCards(inputPlaceName.value, inputLink.value);
   closePopup(popupAdd);
   evt.target.reset();
 }
