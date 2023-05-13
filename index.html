@@ -42,10 +42,18 @@
     <section class="popup" id="popup">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" name="form">
-                <input type="text" placeholder="" class="popup__text popup__text_type_name" name="name" id="popup__text">
-                <input type="text" placeholder="" class="popup__text popup__text_type_brief" name="brief" id="popup__brief">
-                <button type="submit" class="popup__save-button">Сохранить</button>
+            <form class="popup__form" name="form" novalidate id="popup__form">
+                <fieldset class="popup__set">
+                    <input type="text" placeholder="" class="popup__text popup__text_type_name" name="name" id="user"
+                        required minlength="2" maxlength="40">
+                    <span class="popup__text-error user-error"></span>
+
+                    <input type="text" placeholder="" class="popup__text popup__text_type_brief" name="brief" id="brief"
+                        required minlength="2" maxlength="200">
+                    <span class="popup__text-error brief-error"></span>
+
+                    <button type="submit" class="popup__save-button">Сохранить</button>
+                </fieldset>
             </form>
             <button type="button" class="popup__close-button"><img src="./images/popup-close.svg"
                     alt="Кнопка закрытия формы" class="popup__cross"></button>
@@ -55,14 +63,21 @@
     <section class="popup" id="add-popup">
         <div class="popup__container">
             <h2 class="popup__title">Новое место</h2>
-            <form class="popup__form" name="form">
-                <input type="text" placeholder="Название" class="popup__text popup__text_type_name" name="name" id="add-popup__text">
-                <input type="text" placeholder="Ссылка на картинку" class="popup__text popup__text_type_image"
-                    name="brief" id="add-popup__image">
-                <button type="button" class="popup__save-button" id="add-popup__create-button">Создать</button>
+            <form class="popup__form" name="addform" novalidate id="add-popup__form">
+                <fieldset class="popup__set">
+                    <input type="text" placeholder="Название" class="popup__text popup__text_type_name" name="imagename"
+                        id="name" required minlength="2" maxlength="40">
+                    <span class="popup__text-error name-error"></span>
+
+                    <input type="url" placeholder="Ссылка на картинку" class="popup__text popup__text_type_image"
+                        name="imagelink" id="link" required>
+                    <span class="popup__text-error link-error"></span>
+
+                    <button type="submit" class="popup__save-button" id="add-popup__create-button">Создать</button>
+                </fieldset>
             </form>
-            <button type="button" class="popup__close-button" id="add-popup__close-button"><img src="./images/popup-close.svg"
-                    alt="Кнопка закрытия формы" class="popup__cross"></button>
+            <button type="button" class="popup__close-button" id="add-popup__close-button"><img
+                    src="./images/popup-close.svg" alt="Кнопка закрытия формы" class="popup__cross"></button>
         </div>
     </section>
 
@@ -73,11 +88,10 @@
                 <figcaption class="popup__name" id="image-popup__name"></figcaption>
             </figure>
 
-            <button type="button" class="popup__close-button" id="image-popup__close-button"><img src="./images/popup-close.svg"
-                alt="Кнопка закрытия формы" class="popup__cross"></button>
+            <button type="button" class="popup__close-button" id="image-popup__close-button"><img
+                    src="./images/popup-close.svg" alt="Кнопка закрытия формы" class="popup__cross"></button>
         </div>
-        
-        
+
     </section>
 
 
@@ -90,7 +104,7 @@
             </div>
             <button class="cards__delete-button"></button>
         </div>
-        
+
     </template>
 
     <script src="./scripts/initialCards.js"></script>
