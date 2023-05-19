@@ -17,10 +17,10 @@ const cardImage = addPopup.querySelector('#link');
 const popupName = editPopup.querySelector('#user');
 const popupBrief = editPopup.querySelector('#brief');
 
+const nm = imagePopup.querySelector('#image-popup__name');
 const img = imagePopup.querySelector('#image-popup__image');
 const addButton = profile.querySelector('.profile__add-button');
 const editButton = profile.querySelector('.profile__edit-button');
-const closeButton = editPopup.querySelector('.popup__close-button');
 const createButton = addPopup.querySelector('#add-popup__create-button');
 
 
@@ -64,16 +64,19 @@ function editProfile(evt) {
 function addCard(evt) {
   evt.preventDefault();
   renderCards(cardName.value, cardImage.value);
+  addForm.reset();
+  disableButton(createButton, settings);
   closePopup(addPopup);
 }
 
 
 function returnCard(name, link) {
   const cardElement = cardTemplate.querySelector('.cards__card').cloneNode(true);
-
-  cardElement.querySelector('.cards__name').textContent = name;
-  cardElement.querySelector('.cards__image').src = link;
-  cardElement.querySelector('.cards__image').alt = name;
+  const cardNm = cardElement.querySelector('.cards__name');
+  const cardImg = cardElement.querySelector('.cards__image');
+  cardNm.textContent = name;
+  cardImg.src = link;
+  cardImg.alt = name;
   return cardElement;
 }
 
@@ -91,7 +94,7 @@ function createCard(name, link) {
   });
 
   cardElement.querySelector('.cards__image').addEventListener('click', () => {
-    imagePopup.querySelector('#image-popup__name').textContent = name;
+    nm.textContent = name;
     img.src = link;
     img.alt = name;
     openPopup(imagePopup);
@@ -106,13 +109,6 @@ const renderCards = (name, link) => {
 
 const firstcards = initialCards.map(({ name, link }) => createCard(name, link));
 cardsList.prepend(...firstcards);
-
-const handleAddFormSubmit = (evt) => {
-  evt.preventDefault();
-  renderCards(inputPlaceName.value, inputLink.value);
-  closePopup(popupAdd);
-  evt.target.reset();
-}
 
 
 profile.querySelector('.profile__edit-button').addEventListener('click', () => {
@@ -139,4 +135,3 @@ imagePopup.querySelector('#image-popup__close-button').addEventListener('click',
 /*обработчики для отправки данных*/
 editForm.addEventListener('submit', editProfile);
 addForm.addEventListener('submit', addCard);
-
