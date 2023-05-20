@@ -41,8 +41,8 @@ function closePopup(popup) {
 /*закрытие попапов (улучшение UX)*/
 function closePopupEscape(evt) {
   if (evt.key === "Escape") {
-    const popupopened = document.querySelector('.popup_opened');
-    closePopup(popupopened);
+    const popupOpened = document.querySelector('.popup_opened');
+    closePopup(popupOpened);
   }
 }
 

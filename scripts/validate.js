@@ -80,12 +80,7 @@ const showInputError = (formElement, inputElement, errorMessage, setting) => {
       formElement.addEventListener('submit', function (evt) {
         evt.preventDefault();
       });
-    formList.forEach((formElement) => {
-        formElement.addEventListener("submit", function (evt) {
-            evt.preventDefault();
-        });
-        setEventListeners(formElement, setting);
-    });
+    setEventListeners(formElement, setting);
     });   
     
     };
