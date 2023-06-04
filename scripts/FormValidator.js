@@ -1,4 +1,3 @@
-/*валидация*/
 const settings =
 {
     formSelector: '.popup__form',
@@ -85,5 +84,4 @@ const showInputError = (formElement, inputElement, errorMessage, setting) => {
     
     };
 
-  
 enableValidation(settings);
