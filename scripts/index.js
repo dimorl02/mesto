@@ -1,3 +1,4 @@
+import {FormValidator, settings} from './FormValidator.js'
 import {Card} from '../scripts/Card.js';
 const profile = document.querySelector('.profile');
 const editPopup = document.querySelector('#popup');
@@ -11,12 +12,14 @@ const addForm = addPopup.querySelector('#add-popup__form');
 const author = info.querySelector('.profile__author');
 const textName = author.querySelector('.profile__name');
 const textBrief = author.querySelector('.profile__brief');
-
+export {addForm, editForm}
 const popupName = editPopup.querySelector('#user');
 const popupBrief = editPopup.querySelector('#brief');
 
 const nm = imagePopup.querySelector('#image-popup__name');
 const img = imagePopup.querySelector('#image-popup__image');
+const name = addPopup.querySelector('#name');
+const link = addPopup.querySelector('#link');
 const addButton = profile.querySelector('.profile__add-button');
 const editButton = profile.querySelector('.profile__edit-button');
 
@@ -110,8 +113,8 @@ initialCards.forEach((item) => renderCard(item, 'append'));
 
 function getForm() {
   const object = {
-    name: nm.value,
-    link: img.value
+    name: name.value,
+    link: link.value
   }
   console.log(object.name);
   return object;
@@ -146,3 +149,9 @@ document.querySelectorAll('.popup__close-button').forEach(closeButton => {
 
 /*обработчики для отправки данных*/
 editForm.addEventListener('submit', editProfile);
+
+console.log(addForm);
+const addFormValidated = new FormValidator(settings, addForm);
+const editFormValidated = new FormValidator(settings, editForm);
+addFormValidated.enableValidation();
+editFormValidated.enableValidation();
