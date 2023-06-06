@@ -1,8 +1,9 @@
 class Card {
-    constructor(name, link, showPopup) {
-        this._name = name;
-        this._link = link;
-        this._showPopup = showPopup;
+    constructor(card, templateSelector, showImagePopup) {
+        this._name = card.name;
+        this._link = card.link;
+        this._templateSelector = templateSelector;
+        this._showImagePopup = showImagePopup
     }
 
     _getTemplate() {
@@ -34,7 +35,7 @@ class Card {
         this._likeButton.addEventListener('click', () => this._like());
         this._deleteButton.addEventListener('click', () => this._deleteCard());
         this._element.querySelector('.cards__image').addEventListener('click', () =>
-            this._showPopup({ link: this._link, name: this._name }))
+            this._showImagePopup({ link: this._link, name: this._name }))
     }
 };
 

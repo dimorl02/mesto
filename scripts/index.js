@@ -1,77 +1,49 @@
-import {FormValidator, settings} from './FormValidator.js'
+import {FormValidator} from '../scripts/FormValidator.js'
 import {Card} from '../scripts/Card.js';
+import {settings, initialCards} from '../scripts/constants.js';
 const profile = document.querySelector('.profile');
 const editPopup = document.querySelector('#popup');
 const addPopup = document.querySelector('#add-popup');
 const imagePopup = document.querySelector('#image-popup');
 const info = profile.querySelector('.profile__info');
 const cardsList = document.querySelector('.cards');
-
 const editForm = editPopup.querySelector('#popup__form');
 const addForm = addPopup.querySelector('#add-popup__form');
 const author = info.querySelector('.profile__author');
 const textName = author.querySelector('.profile__name');
 const textBrief = author.querySelector('.profile__brief');
-export {addForm, editForm}
 const popupName = editPopup.querySelector('#user');
 const popupBrief = editPopup.querySelector('#brief');
-
-const nm = imagePopup.querySelector('#image-popup__name');
-const img = imagePopup.querySelector('#image-popup__image');
+const cardName = imagePopup.querySelector('#image-popup__name');
+const cardImage = imagePopup.querySelector('#image-popup__image');
 const name = addPopup.querySelector('#name');
 const link = addPopup.querySelector('#link');
 const addButton = profile.querySelector('.profile__add-button');
 const editButton = profile.querySelector('.profile__edit-button');
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
 
 
 /*открытие-закрытие попапов*/
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupEscape);
-  popup.addEventListener("click", closePopupOverlay);
+  document.addEventListener('keydown', closePopupByEscape);
+  popup.addEventListener("click", closePopupByOverlay);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closePopupEscape);
-  popup.removeEventListener("click", closePopupOverlay);
+  document.removeEventListener('keydown', closePopupByEscape);
+  popup.removeEventListener("click", closePopupByOverlay);
 }
 
 /*закрытие попапов (улучшение UX)*/
-function closePopupEscape(evt) {
+function closePopupByEscape(evt) {
   if (evt.key === "Escape") {
     const popupOpened = document.querySelector('.popup_opened');
     closePopup(popupOpened);
   }
 }
-function closePopupOverlay(evt) {
+function closePopupByOverlay(evt) {
   if (evt.currentTarget === evt.target) {
     closePopup(evt.currentTarget);
   }
@@ -86,10 +58,10 @@ function editProfile(evt) {
   closePopup(editPopup);
 }
 
-function showPopup(element) {
-  nm.textContent = element.name;
-  img.src = element.link;
-  img.alt = element.name;
+function showImagePopup(cardData) {
+  cardName.textContent = cardData.name;
+  cardImage.src = cardData.link;
+  cardImage.alt = cardData.name;
   openPopup(imagePopup);
 }
 
@@ -97,7 +69,7 @@ function showPopup(element) {
 
 
 const createCard = (item) => {
-  const card = new Card(item.name, item.link, showPopup);
+  const card = new Card(item, showImagePopup);
   return card.generateCard();
 };
 
@@ -150,8 +122,9 @@ document.querySelectorAll('.popup__close-button').forEach(closeButton => {
 /*обработчики для отправки данных*/
 editForm.addEventListener('submit', editProfile);
 
-console.log(addForm);
-const addFormValidated = new FormValidator(settings, addForm);
-const editFormValidated = new FormValidator(settings, editForm);
-addFormValidated.enableValidation();
-editFormValidated.enableValidation();
+
+/*валидация*/
+const addFormValidator = new FormValidator(settings, addForm);
+const editFormValidator = new FormValidator(settings, editForm);
+addFormValidator.enableValidation();
+editFormValidator.enableValidation();

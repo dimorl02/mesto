@@ -1,14 +1,3 @@
-const settings =
-{
-    formSelector: '.popup__form',
-    inputSelector: '.popup__text',
-    setSelector: '.popup__set',
-    submitButtonSelector: '.popup__save-button',
-    inactiveButtonClass: 'popup__save-button_disabled',
-    inputErrorClass: 'popup__text_type_error',
-    errorClass: 'popup__text-error_active'
-}
-
 class FormValidator {
     constructor(setting, formElement) {
         this._formElement = formElement;
@@ -46,7 +35,7 @@ class FormValidator {
         this._errorElement.textContent = '';
     };
 
-    _isValid(inputElement) {
+    _checkInputValidity(inputElement) {
         if (!inputElement.validity.valid) {
             this._showInputError(inputElement, inputElement.validationMessage);
         } else {
@@ -54,14 +43,6 @@ class FormValidator {
         }
     }
 
-    _checkInputValidity = (formElement, inputElement, setting) => {
-
-        if (!inputElement.validity.valid) {
-            this._showInputError(inputElement, inputElement.validationMessage);
-        } else {
-            this._hideInputError(formElement, inputElement, setting);
-        }
-    };
 
     _hasInvalidInput() {
         return this._inputList.some((inputElement) => {
@@ -80,7 +61,7 @@ class FormValidator {
     _setEventListeners() {
         this._inputList.forEach(inputElement => {
             inputElement.addEventListener('input', () => {
-                this._isValid(inputElement);
+                this._checkInputValidity(inputElement);
                 this._toggleButtonState();
             });
         });
@@ -96,5 +77,5 @@ class FormValidator {
 
 
 
-export { FormValidator, settings};
+export { FormValidator};
 
