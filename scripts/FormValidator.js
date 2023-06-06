@@ -10,7 +10,7 @@ class FormValidator {
         this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
         this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
     }
-    _disableButton() {
+    disableButton() {
         this._buttonElement.disabled = 'disabled';
         this._buttonElement.classList.add(this._inactiveButtonClass);
     }
@@ -52,7 +52,7 @@ class FormValidator {
 
     _toggleButtonState() {
         if (this._hasInvalidInput()) {
-            this._disableButton();
+            this.disableButton();
         } else {
             this._enableButton();
         }

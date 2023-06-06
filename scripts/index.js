@@ -20,7 +20,7 @@ const name = addPopup.querySelector('#name');
 const link = addPopup.querySelector('#link');
 const addButton = profile.querySelector('.profile__add-button');
 const editButton = profile.querySelector('.profile__edit-button');
-
+const createButton = addPopup.querySelector('add-popup__create-button');
 
 
 /*открытие-закрытие попапов*/
@@ -69,7 +69,7 @@ function showImagePopup(cardData) {
 
 
 const createCard = (item) => {
-  const card = new Card(item, showImagePopup);
+  const card = new Card(item, '.cards__card-template', showImagePopup);
   return card.generateCard();
 };
 
@@ -97,6 +97,7 @@ addForm.addEventListener('submit', function (evt) {
   const data = getForm();
   renderCard(data, 'prepend');
   addForm.reset();
+  addFormValidator.disableButton();
   closePopup(addPopup);
 });
 
@@ -109,10 +110,11 @@ editButton.addEventListener('click', function (e) {
   e.preventDefault();
   popupBrief.value = textBrief.textContent;
   popupName.value = textName.textContent;
-  console.log()
   openPopup(editPopup);
 });
 
+
+/*закрытие попапов*/
 document.querySelectorAll('.popup__close-button').forEach(closeButton => {
   const activePopup = closeButton.closest('.popup');
   closeButton.addEventListener('click', () =>
