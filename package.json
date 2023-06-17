@@ -1,0 +1,22 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "1. Название проекта: \"Mesto Russia\".",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimorl02/mesto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dimorl02/mesto/issues"
+  },
+  "homepage": "https://github.com/dimorl02/mesto#readme",
+  "dependencies": {
+    "jquery": "^3.7.0"
+  }
+}

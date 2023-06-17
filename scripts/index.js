@@ -1,12 +1,12 @@
 import {FormValidator} from '../scripts/FormValidator.js'
 import {Card} from '../scripts/Card.js';
+import {Section} from '../scripts/Section.js';
 import {settings, initialCards} from '../scripts/constants.js';
 const profile = document.querySelector('.profile');
 const editPopup = document.querySelector('#popup');
 const addPopup = document.querySelector('#add-popup');
 const imagePopup = document.querySelector('#image-popup');
 const info = profile.querySelector('.profile__info');
-const cardsList = document.querySelector('.cards');
 const editForm = editPopup.querySelector('#popup__form');
 const addForm = addPopup.querySelector('#add-popup__form');
 const author = info.querySelector('.profile__author');
@@ -65,23 +65,19 @@ function showImagePopup(cardData) {
   openPopup(imagePopup);
 }
 
-
-
-
 const createCard = (item) => {
   const card = new Card(item, '.cards__card-template', showImagePopup);
   return card.generateCard();
 };
 
-const renderCard = (item, state) => {
-  switch (state) {
-      case 'prepend': cardsList.prepend(createCard(item)); break;
-      case 'append': cardsList.append(createCard(item)); break;
-      default: cardsList.prepend(createCard(item));
+const cards = new Section({
+  items: initialCards,
+  renderer: (item) => {
+      cards.addItem(createCard(item), 'append');
   }
-}
+}, '.cards');
 
-initialCards.forEach((item) => renderCard(item, 'append'));
+cards.renderItems();
 
 function getForm() {
   const object = {
@@ -95,19 +91,19 @@ function getForm() {
 addForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
   const data = getForm();
-  renderCard(data, 'prepend');
+  cards.addItem(createCard(data), 'prepend');
   addForm.reset();
   addFormValidator.disableButton();
   closePopup(addPopup);
 });
 
-addButton.addEventListener('click', function (e) {
-  e.preventDefault();
+addButton.addEventListener('click', function (evt) {
+  evt.preventDefault();
   openPopup(addPopup);
 });
 
-editButton.addEventListener('click', function (e) {
-  e.preventDefault();
+editButton.addEventListener('click', function (evt) {
+  evt.preventDefault();
   popupBrief.value = textBrief.textContent;
   popupName.value = textName.textContent;
   openPopup(editPopup);

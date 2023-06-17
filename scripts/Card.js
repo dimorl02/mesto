@@ -4,8 +4,6 @@ class Card {
         this._link = card.link;
         this._templateSelector = templateSelector;
         this._showImagePopup = showImagePopup;
-        this._element = this._getTemplate();
-        this._cardImage = this._element.querySelector('.cards__image');
     }
 
     _getTemplate() {
@@ -14,6 +12,8 @@ class Card {
     }
 
     generateCard() {
+        this._element = this._getTemplate();
+        this._cardImage = this._element.querySelector('.cards__image');
         this._deleteButton = this._element.querySelector('.cards__delete-button');
         this._likeButton = this._element.querySelector('.cards__like-button');
         this._element.querySelector('.cards__name').textContent = this._name;
@@ -26,7 +26,7 @@ class Card {
     _like() {
         this._likeButton.classList.toggle('cards__like-button_active');
     }
-    
+
     _deleteCard() {
         this._element.remove();
         this._element = null;
