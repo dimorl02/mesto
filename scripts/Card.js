@@ -1,4 +1,4 @@
-class Card {
+export class Card {
     constructor(card, templateSelector, showImagePopup) {
         this._name = card.name;
         this._link = card.link;
@@ -40,5 +40,3 @@ class Card {
             this._showImagePopup({ link: this._link, name: this._name }))
     }
 };
-
-export { Card };
