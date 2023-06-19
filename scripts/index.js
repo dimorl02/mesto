@@ -8,29 +8,16 @@ const profile = document.querySelector('.profile');
 const editPopup = document.querySelector('#popup');
 const addPopup = document.querySelector('#add-popup');
 const imagePopup = document.querySelector('#image-popup');
-const info = profile.querySelector('.profile__info');
 const editForm = editPopup.querySelector('#popup__form');
 const addForm = addPopup.querySelector('#add-popup__form');
-const author = info.querySelector('.profile__author');
-const textName = author.querySelector('.profile__name');
-const textBrief = author.querySelector('.profile__brief');
-const popupName = editPopup.querySelector('#user');
-const popupBrief = editPopup.querySelector('#brief');
 const cardName = imagePopup.querySelector('#image-popup__name');
 const cardImage = imagePopup.querySelector('#image-popup__image');
 const name = addPopup.querySelector('#name');
 const link = addPopup.querySelector('#link');
 const addButton = profile.querySelector('.profile__add-button');
 const editButton = profile.querySelector('.profile__edit-button');
-const createButton = addPopup.querySelector('add-popup__create-button');
 
 /*основная функциональность*/
-function editProfile(evt) {
-  evt.preventDefault();
-  textName.textContent = popupName.value;
-  textBrief.textContent = popupBrief.value;
-  closePopup(editPopup);
-}
 
 function showImagePopup(cardData) {
   cardName.textContent = cardData.name;
@@ -39,16 +26,11 @@ function showImagePopup(cardData) {
   openPopup(imagePopup);
 }
 
-const popUps = Array.from(document.querySelectorAll('.popup'))
-
-document.querySelectorAll('.popup__close-button').forEach(button => {
-  const closeButton = button.closest('.popup');
-  button.addEventListener('click', () =>
-    closePopUp(closeButton));
-});
-
 const createCard = (item) => {
-  const card = new Card(item, '.cards__card-template', showImagePopup);
+  const card = new Card(item, '.cards__card-template', 
+  showImagePopup: () => {
+    cardImagePopup.open();
+  });
   return card.generateCard();
 };
 
@@ -75,44 +57,36 @@ const userInfo = new UserInfo({
   briefSelector: '.profile__brief',
 })
 
-const profilePopup = new PopupWithForm('#popup', {
+const editProfilePopup = new PopupWithForm('#popup', {
   submitCallback: (data) => {
     userInfo.setUserInfo(data);
-    profilePopup.close()
+    editProfilePopup.close()
   }
 })
-profilePopup.setEventListeners();
+editProfilePopup.setEventListeners();
+
+const addCardPopup = new PopupWithForm('#add-popup', {
+  submitCallback: () => {
+    const data = getForm();
+    cards.addItem(createCard(data), 'prepend');
+    addForm.reset();
+    addFormValidator.disableButton();
+    addCardPopup.close();
+  }
+})
+addCardPopup.setEventListeners();
 
 editButton.addEventListener('click', () => {
-  profilePopup.open();
-  profilePopup.setInputValues(userInfo.getUserInfo());
+  editProfilePopup.open();
+  editProfilePopup.setInputValues(userInfo.getUserInfo());
 })
 
-addForm.addEventListener('submit', function (evt) {
-  evt.preventDefault();
-  const data = getForm();
-  cards.addItem(createCard(data), 'prepend');
-  addForm.reset();
-  addFormValidator.disableButton();
-  closePopup(addPopup);
-});
+const cardImagePopup = new PopupWithImage('#image-popup');
 
 addButton.addEventListener('click', function (evt) {
   evt.preventDefault();
-  openPopup(addPopup);
+  addCardPopup.open();
 });
-
-
-
-/*закрытие попапов*/
-document.querySelectorAll('.popup__close-button').forEach(closeButton => {
-  const activePopup = closeButton.closest('.popup');
-  closeButton.addEventListener('click', () =>
-    closePopup(activePopup));
-});
-
-/*обработчики для отправки данных*/
-editForm.addEventListener('submit', editProfile);
 
 
 /*валидация*/
