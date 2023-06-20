@@ -1,4 +1,14 @@
-const initialCards = [
+export const editPopup = document.querySelector('#popup');
+export const addPopup = document.querySelector('#add-popup');
+export const editForm = editPopup.querySelector('#popup__form');
+export const addForm = addPopup.querySelector('#add-popup__form');
+export const profile = document.querySelector('.profile');
+export const addButton = profile.querySelector('.profile__add-button');
+export const editButton = profile.querySelector('.profile__edit-button');
+export const name = addPopup.querySelector('#name');
+export const link = addPopup.querySelector('#link');
+
+export const initialCards = [
     {
       name: 'Архыз',
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -25,7 +35,7 @@ const initialCards = [
     }
   ];
   
-const settings =
+export const settings =
 {
     formSelector: '.popup__form',
     inputSelector: '.popup__text',
@@ -36,4 +46,3 @@ const settings =
     errorClass: 'popup__text-error_active'
 }
 
-export {settings, initialCards};

@@ -1,4 +1,4 @@
-import Popup from '../scripts/Popup.js'
+import Popup from './Popup.js'
 
 export class PopupWithImage extends Popup {
   constructor(popupSelector) {
@@ -9,9 +9,12 @@ export class PopupWithImage extends Popup {
 
   open(img) {
     super.open();
-    this._cardImage.src = img.link;
-    this._cardImage.alt = img.name;
-    this._cardName.textContent = img.name
+    this._cardImage.src = img.src;
+    this._cardImage.alt = img.alt;
+    this._cardName.textContent = img.alt
   }
 
+  setEventListeners() {
+    super.setEventListeners();
+  }
 };

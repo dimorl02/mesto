@@ -1,5 +1,5 @@
 export class Card {
-    constructor(card, templateSelector, { showImagePopup }) {
+    constructor({ card, templateSelector,  showImagePopup }) {
         this._name = card.name;
         this._link = card.link;
         this._templateSelector = templateSelector;
@@ -23,6 +23,10 @@ export class Card {
         return this._element;
     }
 
+    getCardData() {
+        return this._cardImage;
+
+    }
     _like() {
         this._likeButton.classList.toggle('cards__like-button_active');
     }
