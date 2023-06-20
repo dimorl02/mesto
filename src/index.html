@@ -5,28 +5,29 @@
     <meta charset="UTF-8">
     <title>Mesto</title>
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body class="page">
     <header class="header">
-        <img src="./images/header-logo.svg" alt="Место" class="header__logo">
+        <img src="<%=require('./images/header-logo.svg')%>" alt="Место" class="header__logo">
+        <!-- <link rel="stylesheet" href="./pages/index.css">  -->
     </header>
 
     <main class="content">
         <section class="profile">
-            <img src="./images/profile-image.jpg" alt="Жак-Ив Кусто" class="profile__image">
+            <img src="<%=require('./images/profile-image.jpg')%>" alt="Жак-Ив Кусто" class="profile__image">
             <div class="profile__info">
                 <div class="profile__author">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <p class="profile__brief">Исследователь океана</p>
                 </div>
                 <button type="button" class="profile__edit-button">
-                    <img src="./images/profile-pen.svg" alt="Кнопка редактирования" class="profile__pen">
+                    <img src="<%=require('./images/profile-pen.svg')%>" alt="Кнопка редактирования"
+                        class="profile__pen">
                 </button>
             </div>
             <button type="button" class="profile__add-button">
-                <img src="./images/profile-plus.svg" alt="Кнопка добавления" class="profile__plus">
+                <img src="<%=require('./images/profile-plus.svg')%>" alt="Кнопка добавления" class="profile__plus">
             </button>
         </section>
 
@@ -59,8 +60,9 @@
                     <button type="submit" class="popup__save-button">Сохранить</button>
                 </fieldset>
             </form>
-            <button type="button" class="popup__close-button"><img src="./images/popup-close.svg"
-                    alt="Кнопка закрытия формы" class="popup__cross"></button>
+            <button type="button" class="popup__close-button"><img src="<%=require('./images/popup-close.svg')%>"
+                    alt="Кнопка закрытия формы" class="popup__cross">
+            </button>
         </div>
     </section>
 
@@ -74,7 +76,7 @@
                             name="imagename" id="name" required minlength="2" maxlength="40">
                         <span class="popup__text-error name-error"></span>
                     </div>
-                    
+
                     <div class="popup__error-container">
                         <input type="url" placeholder="Ссылка на картинку" class="popup__text popup__text_type_image"
                             name="imagelink" id="link" required>
@@ -85,7 +87,8 @@
                 </fieldset>
             </form>
             <button type="button" class="popup__close-button" id="add-popup__close-button"><img
-                    src="./images/popup-close.svg" alt="Кнопка закрытия формы" class="popup__cross"></button>
+                    src="<%=require('./images/popup-close.svg')%>" alt="Кнопка закрытия формы"
+                    class="popup__cross"></button>
         </div>
     </section>
 
@@ -97,7 +100,8 @@
             </figure>
 
             <button type="button" class="popup__close-button" id="image-popup__close-button"><img
-                    src="./images/popup-close.svg" alt="Кнопка закрытия формы" class="popup__cross"></button>
+                    src="<%=require('./images/popup-close.svg')%>" alt="Кнопка закрытия формы"
+                    class="popup__cross"></button>
         </div>
 
     </section>
@@ -112,10 +116,9 @@
             </div>
             <button class="cards__delete-button"></button>
         </div>
-
     </template>
 
-    <script type='module' src="./src/index.js"></script>
+    <!-- <script type=' module' src="./src/index.js"></script> -->
 </body>
 
 </html>

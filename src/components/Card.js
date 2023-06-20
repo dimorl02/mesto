@@ -23,7 +23,7 @@ export class Card {
         return this._element;
     }
 
-    getCardData() {
+    getImageData() {
         return this._cardImage;
 
     }

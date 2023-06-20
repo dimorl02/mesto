@@ -5,7 +5,6 @@ import { PopupWithForm } from '../components/PopupWithForm.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
 import { UserInfo } from '../components/UserInfo.js';
 import { settings, initialCards } from '../utils/constants.js';
-console.log('Hello, Wolrd!');
 import {
   editForm,
   addForm,
@@ -16,6 +15,7 @@ import {
 } 
 from '../utils/constants.js';
 
+import '../pages/index.css';
 /*основная функциональность*/
 
 const createCard = (item) => {
@@ -23,8 +23,7 @@ const createCard = (item) => {
     card: item,
     templateSelector: '.cards__card-template',
     showImagePopup: () => {
-      cardImagePopup.open(card.getCardData());
-      console.log(card.getCardData())
+      cardImagePopup.open(card.getImageData());
     }
   })
   return card.generateCard();
@@ -51,7 +50,6 @@ function getForm() {
     name: name.value,
     link: link.value
   }
-  console.log(object.name);
   return object;
 }
 
