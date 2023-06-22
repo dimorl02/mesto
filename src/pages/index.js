@@ -54,7 +54,6 @@ const addCardPopup = new PopupWithForm('#add-popup', {
     cards.addItem(createCard(item))
     addFormValidator.disableButton();
     addCardPopup.close();
-    console.log(item);
   }
 })
 
