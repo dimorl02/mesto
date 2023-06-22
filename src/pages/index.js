@@ -8,24 +8,18 @@ import { settings, initialCards } from '../utils/constants.js';
 import {
   editForm,
   addForm,
-  name,
-  link,
   addButton,
   editButton
-} 
-from '../utils/constants.js';
-
+}
+  from '../utils/constants.js';
 import '../pages/index.css';
-/*основная функциональность*/
 
+
+/*основная функциональность*/
 const createCard = (item) => {
-  const card = new Card({
-    card: item,
-    templateSelector: '.cards__card-template',
-    showImagePopup: () => {
-      cardImagePopup.open(card.getImageData());
-    }
-  })
+  const card = new Card(item, '.cards__card-template', () => {
+    cardImagePopup.open(item);
+  });
   return card.generateCard();
 };
 
@@ -38,22 +32,15 @@ const cards = new Section({
 
 cards.renderItems();
 
+/* создание классов*/
 const editProfilePopup = new PopupWithForm('#popup', {
   submitCallback: (data) => {
     userInfo.setUserInfo(data);
-    editProfilePopup.close()
+    editFormValidator.disableButton();
+    editProfilePopup.close();
   }
 })
 
-function getForm() {
-  const object = {
-    name: name.value,
-    link: link.value
-  }
-  return object;
-}
-
-/* создание классов и слушателей для них*/
 const cardImagePopup = new PopupWithImage('#image-popup');
 cardImagePopup.setEventListeners();
 
@@ -63,12 +50,11 @@ const userInfo = new UserInfo({
 })
 
 const addCardPopup = new PopupWithForm('#add-popup', {
-  submitCallback: () => {
-    const data = getForm();
-    cards.addItem(createCard(data), 'prepend');
-    addForm.reset();
+  submitCallback: (item) => {
+    cards.addItem(createCard(item))
     addFormValidator.disableButton();
     addCardPopup.close();
+    console.log(item);
   }
 })
 

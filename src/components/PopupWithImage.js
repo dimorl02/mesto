@@ -7,11 +7,11 @@ export class PopupWithImage extends Popup {
     this._cardName = this._popup.querySelector('.popup__name');
   }
 
-  open(img) {
+  open(item) {
     super.open();
-    this._cardImage.src = img.src;
-    this._cardImage.alt = img.alt;
-    this._cardName.textContent = img.alt
+    this._cardImage.src = item.link;
+    this._cardImage.alt = item.name;
+    this._cardName.textContent = item.name;
   }
 
   setEventListeners() {
