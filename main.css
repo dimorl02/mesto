@@ -7,13 +7,14 @@
 .profile{display:flex;flex-direction:row;margin:40px auto 0;max-width:calc(100% - 400px)}@media screen and (max-width:1070px){.profile{flex-direction:column;justify-content:center;margin-top:42px;max-width:calc(100% - 38px)}}
 .profile__info{-moz-column-gap:18px;column-gap:18px;display:flex;flex-direction:row;margin-top:22px}@media screen and (max-width:1070px){.profile__info{-moz-column-gap:10px;column-gap:10px;margin:26px auto 0;max-width:100%;transform:translateX(14px)}}
 .profile__author{display:flex;flex-direction:column;gap:7px;margin:0}@media screen and (max-width:500px){.profile__author{align-self:auto;gap:8px}}
+.profile__avatar-button{border-radius:50%;height:120px;max-width:120px}
 .profile__name{font-family:Inter,‘Arial’,sans-serif;font-size:42px;font-weight:500;line-height:48px;margin:0;max-width:350px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:500px){.profile__name{font-size:27px;line-height:33px;max-width:190px}}
 .profile__brief{font-family:Inter,‘Arial’,sans-serif;font-size:18px;font-weight:400;line-height:22px;margin:0;max-width:350px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:500px){.profile__brief{font-size:14px;line-height:17px;max-height:14px;max-width:190px;text-align:center}}
 .profile__edit-button{align-items:center;background-color:transparent;border:1px solid #fff;cursor:pointer;display:flex;height:24px;justify-content:center;margin-top:15px;width:24px}@media screen and (max-width:500px){.profile__edit-button{height:18px;margin-top:8px;width:18px}}.profile__edit-button:hover{opacity:.6}
 @media screen and (max-width:500px){.profile__pen{max-height:7.5px;max-width:7.5px}}
 .profile__add-button{align-items:center;align-self:center;background-color:transparent;border:2px solid #fff;border-radius:2px;cursor:pointer;display:flex;height:50px;justify-content:center;margin-left:auto;padding:0;width:150px}@media screen and (max-width:1070px){.profile__add-button{margin-top:36px;width:100%}}.profile__add-button:hover{opacity:.6}
 @media screen and (max-width:500px){.profile__plus{max-height:16px;max-width:16px}}
-.profile__image{border-radius:50%;margin-right:30px;max-height:120px;max-width:120px}@media screen and (max-width:1070px){.profile__image{margin:0 auto}}
+.profile__image{border-radius:50%;height:120px;margin-right:30px;max-width:120px}@media screen and (max-width:1070px){.profile__image{margin:0 auto}}
 .cards{-moz-column-gap:17px;column-gap:17px;display:grid;grid-template-columns:repeat(auto-fill,minmax(282px,1fr));list-style-type:none;margin:51px auto 0;max-width:calc(100% - 400px);row-gap:20px}@media screen and (max-width:1070px){.cards{margin-top:36px;max-width:calc(100% - 38px)}}
 .cards__card{background-color:#fff;border-radius:10px;color:#000;display:flex;flex-direction:column;overflow:hidden;position:relative}
 .cards__name{font-family:Inter,‘Arial’,sans-serif;font-size:24px;font-weight:900;height:23px;line-height:22px;margin:0;max-width:210px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -21,6 +22,8 @@
 .cards__like-button{background-color:#fff;background-image:url(87ed371465c7a6a1cd01.svg);background-repeat:no-repeat;border:none;cursor:pointer;flex-shrink:0;height:19px;padding:0;width:22px}.cards__like-button:not(.elements__like-button:active):hover{opacity:.5}
 .cards__delete-button{background-color:transparent;background-image:url(823b0cf1b0b7e9cb7cad.svg);border:none;cursor:pointer;height:19px;position:absolute;right:20px;top:20px;width:18px}.cards__delete-button:hover{opacity:.6}
 .cards__field{align-items:flex-end;display:flex;flex-direction:row;justify-content:space-between;margin:25px auto 31px;width:246px}
+.cards__like-container{display:flex;justify-content:center;position:relative}
+.cards__like-counter{bottom:-16px;font-family:Inter,‘Arial’,sans-serif;font-size:13px;font-weight:400;height:13px;position:absolute;text-align:center}
 .cards__like-button_active{background-image:url(fe17a515669479b1e649.svg)}
 .popup{align-items:center;animation:close .3s ease;background-color:rgba(0,0,0,.5);display:flex;height:100%;justify-content:center;left:0;opacity:0;position:fixed;top:0;visibility:hidden;width:100%}@keyframes close{0%{opacity:1;visibility:visible}to{opacity:0;visibility:hidden}}
 .popup__container{background-color:#fff;border-radius:10px;box-shadow:0 0 25px rgba(0,0,0,.15);color:#000;height:330px;position:relative;width:430px}@media screen and (max-width:500px){.popup__container{height:322px;width:calc(100% - 38px)}}
