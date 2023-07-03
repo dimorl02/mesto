@@ -54,13 +54,13 @@ const createCard = (data, user) => {
 
 /* api*/
 const api = new Api(settingsApi);
-let UserId;
+let currentUserId;
 Promise.all([api.getInitialCards(), api.getUserInfoApi()])
   .then(([resCard, resUser]) => {
-    console.log(resCard);
+    currentUserId = resUser._id;
     userInfo.setUserInfo(resUser);
     userInfo.setUserAvatar(resUser);
-    cards.renderItems(resCard, resUser)
+    cards.renderItems(resCard, currentUserId)
   })
   .catch((err) => alert(err))
 
@@ -68,7 +68,6 @@ Promise.all([api.getInitialCards(), api.getUserInfoApi()])
 /* создание классов*/
 const editProfilePopup = new PopupWithForm('#popup', {
   submitCallback: (data) => {
-    console.log(data)
     api.setUserInfoApi(data)
       .then((res) => {
         userInfo.setUserInfo(res);
@@ -98,7 +97,7 @@ const addCardPopup = new PopupWithForm('#add-popup', {
   submitCallback: (item) => {
     api.addCardApi(item)
     .then((card) => {
-      cards.addItem(createCard(card, UserId))
+      cards.addItem(createCard(card, currentUserId))
       addFormValidator.disableButton();
       addCardPopup.close();
     })
@@ -119,7 +118,6 @@ const deleteCardPopup = new PopupWithConfirmation('#confirm-popup', {
 
 const editAvatarPopup = new PopupWithForm('#avatar-popup', {
   submitCallback: (data) => {
-    console.log(data)
     api.setUserAvatarApi(data)
     .then((resUser) => {
       userInfo.setUserAvatar(resUser);
@@ -128,7 +126,7 @@ const editAvatarPopup = new PopupWithForm('#avatar-popup', {
     .catch((err) => alert(err))
   }
 })
-
+console.log(currentUserId, 12123123);
 /*слушатели*/
 addCardPopup.setEventListeners();
 editProfilePopup.setEventListeners();

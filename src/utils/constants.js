@@ -8,7 +8,7 @@ export const avatarForm = editPopup.querySelector('#avatar-popup__form');
 export const profile = document.querySelector('.profile');
 export const addButton = profile.querySelector('.profile__add-button');
 export const editButton = profile.querySelector('.profile__edit-button');
-export const avatarButton = profile.querySelector('.profile__avatar-button');
+export const avatarButton = profile.querySelector('.profile__image');
 export const name = addPopup.querySelector('#name');
 export const link = addPopup.querySelector('#link');
 

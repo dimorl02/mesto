@@ -2,8 +2,7 @@
     width: calc(100% - 72px);
     height: 50px;
     padding: 0;
-    margin: 48px auto 36px;
-    align-self: center;
+    margin: 48px 36px 36px;
     color: white;
     background-color: black;
     font-family: 'Inter', ‘Arial’, sans-serif;
@@ -17,7 +16,8 @@
 @media screen and (max-width: 500px) {
     .popup__save-button {
         width: calc(100% - 44px);
-        margin-bottom: 25px;
+        margin: 48px 22px 25px;
+
         height: 46px;
         font-size: 14px;
         line-height: 17px;

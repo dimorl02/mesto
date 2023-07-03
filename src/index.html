@@ -15,10 +15,6 @@
     <main class="content">
         <section class="profile">
             <div class="profile__avatar">
-                <button type="button" class="profile__avatar-button">
-                <img src="<%=require('./images/profile-pen.svg')%>" alt="Кнопка редактирования"
-                    class="profile__avatar-pen">
-                </button>
                 <img src="<%=require('./images/profile-image.jpg')%>" alt="Аватар пользователя" class="profile__image">
             </div>
             <div class="profile__info">
@@ -127,7 +123,7 @@
                 <fieldset class="popup__set">
                     <div class="popup__error-container">
                         <input type="url" placeholder="Ссылка на картинку" class="popup__text popup__text_type_image"
-                            name="avatar" id="link" required>
+                            name="avatar" id="avatar" required>
                         <span class="popup__text-error link-error"></span>
                     </div>
 
