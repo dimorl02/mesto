@@ -3,7 +3,6 @@
     background-color: white;
     border-radius: 10px;
     width: 430px;
-    height: 330px;
     position: relative;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
 }
@@ -14,3 +13,4 @@
         height: 322px;
     }
 }
+

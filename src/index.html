@@ -14,7 +14,13 @@
 
     <main class="content">
         <section class="profile">
-            <img src="<%=require('./images/profile-image.jpg')%>" alt="Жак-Ив Кусто" class="profile__image">
+            <div class="profile__avatar">
+                <button type="button" class="profile__avatar-button">
+                <img src="<%=require('./images/profile-pen.svg')%>" alt="Кнопка редактирования"
+                    class="profile__avatar-pen">
+                </button>
+                <img src="<%=require('./images/profile-image.jpg')%>" alt="Аватар пользователя" class="profile__image">
+            </div>
             <div class="profile__info">
                 <div class="profile__author">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -51,7 +57,7 @@
                     </div>
 
                     <div class="popup__error-container">
-                        <input type="text" placeholder="" class="popup__text popup__text_type_brief" name="brief"
+                        <input type="text" placeholder="" class="popup__text popup__text_type_brief" name="about"
                             id="brief" required minlength="2" maxlength="200">
                         <span class="popup__text-error brief-error"></span>
                     </div>
@@ -71,8 +77,8 @@
             <form class="popup__form" name="addform" novalidate id="add-popup__form">
                 <fieldset class="popup__set">
                     <div class="popup__error-container">
-                        <input type="text" placeholder="Название" class="popup__text popup__text_type_name"
-                            name="name" id="name" required minlength="2" maxlength="40">
+                        <input type="text" placeholder="Название" class="popup__text popup__text_type_name" name="name"
+                            id="name" required minlength="2" maxlength="40">
                         <span class="popup__text-error name-error"></span>
                     </div>
 
@@ -102,16 +108,47 @@
                     src="<%=require('./images/popup-close.svg')%>" alt="Кнопка закрытия формы"
                     class="popup__cross"></button>
         </div>
-
     </section>
 
+    <section class="popup" id="confirm-popup">
+        <div class="popup__container">
+            <h2 class="popup__title">Вы уверены?</h2>
+            <button type="button" class="popup__save-button">Да</button>
+            <button type="button" class="popup__close-button"><img src="<%=require('./images/popup-close.svg')%>"
+                    alt="Кнопка закрытия формы" class="popup__cross">
+            </button>
+        </div>
+    </section>
+
+    <section class="popup" id="avatar-popup">
+        <div class="popup__container">
+            <h2 class="popup__title">Обновить аватар</h2>
+            <form class="popup__form" name="avatarform" novalidate id="avatar-popup__form">
+                <fieldset class="popup__set">
+                    <div class="popup__error-container">
+                        <input type="url" placeholder="Ссылка на картинку" class="popup__text popup__text_type_image"
+                            name="avatar" id="link" required>
+                        <span class="popup__text-error link-error"></span>
+                    </div>
+
+                    <button type="submit" class="popup__save-button" id="avatar-popup__edit-button">Сохранить</button>
+                </fieldset>
+            </form>
+            <button type="button" class="popup__close-button" id="add-popup__close-button"><img
+                    src="<%=require('./images/popup-close.svg')%>" alt="Кнопка закрытия формы"
+                    class="popup__cross"></button>
+        </div>
+    </section>
 
     <template class="cards__card-template">
         <div class="cards__card">
             <img class="cards__image">
             <div class="cards__field">
                 <h2 class="cards__name"></h2>
-                <button type="button" class="cards__like-button"></button>
+                <div class="cards__like-container">
+                    <button type="button" class="cards__like-button"></button>
+                    <span class="cards__like-counter"></span>
+                </div>
             </div>
             <button class="cards__delete-button"></button>
         </div>
