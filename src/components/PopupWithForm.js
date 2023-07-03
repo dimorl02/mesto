@@ -3,8 +3,9 @@ export class PopupWithForm extends Popup {
     constructor(popupSelector, { submitCallback }) {
       super(popupSelector);
       this._submitCallback = submitCallback;
-      this._formSubmit = this._popup.querySelector('.popup__form');
-      this._inputList = Array.from(this._formSubmit.querySelectorAll('.popup__text'));
+      this._submitForm = this._popup.querySelector('.popup__form');
+      this._inputList = Array.from(this._submitForm.querySelectorAll('.popup__text'));
+      this._submitButton = this._submitForm.querySelector('.popup__save-button');
     }
   
     _getInputValues() {
@@ -21,14 +22,25 @@ export class PopupWithForm extends Popup {
       });
     }
 
+    renderPreloader(loading, displayText) {
+      if (!this._submitButton) return;
+      if (loading) {
+        this.defaultText = this._submitButton.textContent;
+        this._submitButton.textContent = displayText;
+      } else {
+        this._submitButton.textContent = this.defaultText;
+      }
+    }
+    
+
     close() {
-      this._formSubmit.reset();
+      this._submitForm.reset();
       super.close();
     }
 
     setEventListeners() {
       super.setEventListeners();
-      this._formSubmit.addEventListener('submit', (evt) => {
+      this._submitForm.addEventListener('submit', (evt) => {
         evt.preventDefault();
         this._submitCallback(this._getInputValues());
         this.close();

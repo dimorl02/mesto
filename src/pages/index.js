@@ -68,12 +68,16 @@ Promise.all([api.getInitialCards(), api.getUserInfoApi()])
 /* создание классов*/
 const editProfilePopup = new PopupWithForm('#popup', {
   submitCallback: (data) => {
+    editProfilePopup.renderPreloader(true, 'Сохранение...');
     api.setUserInfoApi(data)
       .then((res) => {
         userInfo.setUserInfo(res);
         editProfilePopup.close();
       })
       .catch((err) => alert(err))
+      .finally(() => {
+        editProfilePopup.renderPreloader(false);
+      })
   }
 })
 
@@ -95,6 +99,7 @@ const userInfo = new UserInfo({
 
 const addCardPopup = new PopupWithForm('#add-popup', {
   submitCallback: (item) => {
+    addCardPopup.renderPreloader(true, 'Сохранение...');
     api.addCardApi(item)
     .then((card) => {
       cards.addItem(createCard(card, currentUserId))
@@ -102,7 +107,10 @@ const addCardPopup = new PopupWithForm('#add-popup', {
       addCardPopup.close();
     })
     .catch((err) => alert(err))
-  }
+    .finally(() => {
+      addCardPopup.renderPreloader(false);
+    })
+  } 
 })
 
 const deleteCardPopup = new PopupWithConfirmation('#confirm-popup', {
@@ -118,12 +126,17 @@ const deleteCardPopup = new PopupWithConfirmation('#confirm-popup', {
 
 const editAvatarPopup = new PopupWithForm('#avatar-popup', {
   submitCallback: (data) => {
+    editAvatarPopup.renderPreloader(true, 'Сохранение...');
     api.setUserAvatarApi(data)
     .then((resUser) => {
       userInfo.setUserAvatar(resUser);
       editAvatarPopup.close();
     })
     .catch((err) => alert(err))
+    .finally(() => {
+      editAvatarPopup.renderPreloader(false);
+    })
+    
   }
 })
 console.log(currentUserId, 12123123);

@@ -12,6 +12,15 @@ export class PopupWithConfirmation extends Popup {
     this.card = cardElement;
   }
 
+  renderPreloader(loading, displayText) {
+    if (!this._confirmButton) return;
+    if (loading) {
+      this.defaultText = this._confirmButton.textContent;
+      this._confirmButton.textContent = displayText;
+    } else {
+      this._confirmButton.textContent = this.defaultText;
+    }
+  }
   setEventListeners() {
     super.setEventListeners();
     this._confirmButton.addEventListener('click', () => {
