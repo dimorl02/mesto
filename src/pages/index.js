@@ -164,5 +164,7 @@ editButton.addEventListener('click', () => {
 /*валидация*/
 const addFormValidator = new FormValidator(settings, addForm);
 const editFormValidator = new FormValidator(settings, editForm);
+const avatarFormValidator = new FormValidator(settings, avatarForm);
 addFormValidator.enableValidation();
 editFormValidator.enableValidation();
+avatarFormValidator.enableValidation();
